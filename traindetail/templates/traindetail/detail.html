@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="detail">
+
+    <h1>Bienvue sur le detail de votre ligne {{ train.nom }} {{ train.ligne }} à destination de {{ train.destination }}</h1>
+    <div class="container">
+
+        <h3><i class="fa-solid fa-train"></i> {{ train.nom }} {{ train.ligne }}</h3>
+        <h3><i class="fa-solid fa-location-dot"></i> {{ train.destination }}</h3>
+    </div>
+    <div class="container">
+
+        <p>Prochain départ : {{ train.heure_depart }} <br>Arrivée : {{ train.heure_arrivee }}</p>
+        <p class="type">Type : {{ train.type }}</p>
+    </div>
+   
+
+    <h2>Nous vous souhaitons de passer un agréable voyage</h2>
+    <p>Veuillez trouver le détail de votre voyage ci-dessous</p>
+</div>
+<img src="{{ train.detail_trajet.url }}" alt="{{ train.nom }}" class="trajet">
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <div class="home">
+
+        <img src="/media/detail/bg.jpg" alt="">
+        <h1>Paris Gare De Lyon : <br>Départ Des Trains</h1>
+    </div>
+
+    <h2>Retrouvez les horaires de vos trains ci dessous</h2>
+
+    <div class="tableau">
+        {% for train in train %}
+        <div class="train">
+            <h4>{{ train.nom }} {{ train.ligne }}</h4>
+            <p>{{ train.heure_depart }}</p>
+            <h3>{{ train.destination }}</h3>
+            <a href="{% url 'train' train.slug %}">Voir détail</a>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
